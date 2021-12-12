@@ -1,0 +1,21 @@
+<div class="edit-todo-wrapper container has-blurred-white-bg">
+    <h2 class="is-bold">Edit Todo</h2>
+
+    <p *ngIf="!todo">todo not found</p>
+    <form *ngIf="todo" #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+
+        <div class="form-field">
+            <!--#fieldText="ngModel" it called template variable-->
+            <input class="textbox" name="text" [ngModel]="todo?.text" #fieldText="ngModel" type="text" placeholder="Enter Todo text..." required >
+            <!--the contents in ng-container only be shown if the fieldTitle is invalid-->
+            <ng-container *ngIf='formValidationErrors == true && fieldText.invalid'>
+                <p *ngIf='fieldText.errors'>please enter a todo text</p>
+            </ng-container>
+        </div>
+
+        <div class="btns-container">
+            <a routerLink="../" class="btn">Cancel</a>
+            <button type="submit" class="btn align-end">Save</button>
+        </div>
+    </form>
+</div>

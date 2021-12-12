@@ -1,0 +1,19 @@
+<!--app-wrapper:- put in all myApp-->
+<div class="app-wrapper">
+
+<!--begin top-section(time/date)-->
+  <div class="top-section">
+    <h1>{{ dateTime | async | date:'HH:mm' }}</h1>
+    <h2>{{ dateTime | async | date:'d MMMM y' }}</h2>
+      </div>
+
+<!--begin content-section(bookmark/todo/note)-->
+  <div class="content-section" [@routeAnimations]="outlet.isActivated ? outlet.activatedRoute : ''">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+
+  <!--begin bottom-section(Taps)-->
+  <div class="bottom-section">
+    <app-tabs></app-tabs>
+  </div>
+</div>

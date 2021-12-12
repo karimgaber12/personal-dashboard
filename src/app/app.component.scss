@@ -1,0 +1,45 @@
+.app-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-image: url('https://images.pexels.com/photos/36704/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+//<!--begin top-section(time/date)-->
+.top-section{
+    //background-color: #5aa88e;
+    text-align: center;
+    padding: 100px 0;
+    h1{
+        font-size: 120px;
+        color: #f5f5f5;
+        font-weight: bold;
+        text-shadow: 0 1px 7px rgba(black , 0.1);  // amazing shadow for text
+    }
+    h2{
+        font-size: 28px;
+        color: #fff;
+        text-shadow: 0 1px 4px rgba(black , 0.1);  // amazing shadow for text
+    }
+}
+
+//<!--begin content-section(bookmark/todo/note)-->
+.content-section{
+    //background-color: cadetblue;
+    flex-grow: 1; // to fill all the free space
+    min-height: 0;
+}
+
+//<!--begin bottom-section(Taps)-->
+.bottom-section{
+    //background-color: coral;
+    display: flex;
+
+    app-tabs{
+        margin: auto;
+    }
+}

@@ -1,0 +1,23 @@
+<div class="add-note-wrapper container has-blurred-white-bg">
+    <h2 class="is-bold">New Note</h2>
+    
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+        <div class="form-field">
+            <!--#fieldTitle="ngModel" it called template variable-->
+            <input class="textbox"name="title" ngModel #fieldTitle="ngModel" type="text" placeholder="Enter note title..." required >
+            <!--the contents in ng-container only be shown if the fieldTitle is invalid-->
+            <ng-container *ngIf='formValidationErrors == true && fieldTitle.invalid'>
+                <p *ngIf='fieldTitle.errors'>please enter a note title</p>
+            </ng-container>
+        </div>
+
+        <div class="form-field">
+            <textarea class="textarea" name="content" ngModel placeholder="Enter note content..."></textarea>
+        </div>
+
+        <div class="btns-container">
+            <a routerLink="../" class="btn">Cancel</a>
+            <button type="submit" class="btn align-end">Create Note</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="add-bookmark-wrapper container has-blurred-white-bg">
+    <h2 class="is-bold">Add Bookmark</h2>
+
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+        <div class="form-field">
+            <label class="form-label">Name</label>
+            <!--#fieldText="ngModel" it called template variable-->
+            <input class="textbox" name="name" ngModel #fieldName="ngModel" type="text" placeholder="e.g. youtube" required >
+            <!--the contents in ng-container only be shown if the fieldTitle is invalid-->
+            <ng-container *ngIf='formValidationErrors == true && fieldName.invalid'>
+                <p *ngIf='fieldText.errors'>please enter a bookmark name</p>
+            </ng-container>
+        </div>
+
+
+        <div class="form-field">
+            <label class="form-label">Url</label>
+            <!--#fieldText="ngModel" it called template variable-->
+            <input class="textbox" name="url" ngModel #fieldText="ngModel" type="url" placeholder="e.g. https://www.youtube.com" required >
+            <!--the contents in ng-container only be shown if the fieldTitle is invalid-->
+            <ng-container *ngIf='formValidationErrors == true && fieldText.invalid'>
+                <p *ngIf='fieldText.errors'>please enter a bookmark Url</p>
+            </ng-container>
+        </div>
+
+        <div class="btns-container">
+            <a routerLink="../" class="btn">Cancel</a>
+            <button type="submit" class="btn align-end">Create bookmark</button>
+        </div>
+    </form>
+</div>

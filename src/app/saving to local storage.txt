@@ -1,0 +1,32 @@
+// localStorage for notes{
+    1- method to save state in notes.service.ts
+  // create saveState for localStorage
+  saveState(){
+    let StringData = JSON.stringify(this.notes) // use stringify to save as string
+    localStorage.setItem("notes", StringData) 
+  
+  }
+  }
+    2- use method save state when adding new note or updated or deleted in notes.service.ts{
+        addNote(){
+            ....
+            this.saveState()
+            and so on
+        }
+    }
+    3-   // create LoadState to and but in in the constructor
+       loadState(){
+    let getData = localStorage.getItem("notes") 
+
+    const noteInLocalStorage = JSON.parse(getData || '{}') // return Data to JS object
+
+    if(!noteInLocalStorage) return
+
+    this.notes = noteInLocalStorage
+  }
+
+  4- use formEvent to enter into event storage and make a synch dada with another window{
+      
+  }
+
+}

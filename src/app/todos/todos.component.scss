@@ -1,0 +1,12 @@
+.todos-wrapper { 
+    height: 100%;
+    overflow-y: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+.add-btn i{
+    margin: 0 5px 0 -2px;
+}
+app-todo-item{
+    display: block;
+}
